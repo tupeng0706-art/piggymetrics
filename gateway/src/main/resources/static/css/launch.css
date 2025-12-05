@@ -190,7 +190,7 @@ only screen and (min-resolution: 144dpi) {
 	-ms-perspective: 1100px;
 	-o-perspective: 1100px;
 	perspective: 1100px;
-	-ms-transform: rotated3(1,0,0,0);
+	-ms-transform: rotate3d(1,0,0,0);
 	-webkit-transform-origin: 50% 46px 0;
 	-moz-transform-origin: 50% 46px 0;
 	-ms-transform-origin: 50% 46px 0;
@@ -207,6 +207,10 @@ only screen and (min-resolution: 144dpi) {
 	-ms-transform-style: preserve-3d;
 	-o-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	-webkit-backface-visibility: visible;
+	-moz-backface-visibility: visible;
+	-ms-backface-visibility: visible;
+	backface-visibility: visible;
 
 	-webkit-transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
 	-moz-transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
@@ -254,6 +258,11 @@ only screen and (min-resolution: 144dpi) {
 	background-color: white;
 	width: 300px;
 	height: 46px;
+	-webkit-transform: translateZ(0px);
+	-moz-transform: translateZ(0px);
+	-ms-transform: translateZ(0px);
+	-o-transform: translateZ(0px);
+	transform: translateZ(0px);
 }
 #side2 {
 	background-color: white;
