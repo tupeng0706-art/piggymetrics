@@ -1,4 +1,4 @@
-FROM java:8-jre
+FROM amazoncorretto:8-alpine-jre
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD ./target/account-service.jar /app/

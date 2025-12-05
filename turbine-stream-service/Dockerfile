@@ -1,4 +1,4 @@
-FROM java:8-jre
+FROM amazoncorretto:8-alpine-jre
 MAINTAINER Chi Dov <d.chiproeng@gmail.com>
 
 ADD ./target/turbine-stream-service.jar /app/
