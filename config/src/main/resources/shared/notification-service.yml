@@ -30,7 +30,7 @@ spring:
     mongodb:
       host: notification-mongodb
       username: user
-      password: ${MONGODB_PASSWORD}
+      password: cls@2025
       database: piggymetrics
       port: 27017
   mail:

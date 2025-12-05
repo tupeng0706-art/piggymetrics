@@ -3,14 +3,14 @@ security:
     client:
       clientId: account-service
       clientSecret: ${ACCOUNT_SERVICE_PASSWORD}
-      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      accessTokenUri: ${AUTH_SERVICE_URI:http://auth-service:5000}/uaa/oauth/token
       grant-type: client_credentials
       scope: server
 
 spring:
   data:
     mongodb:
-      host: account-mongodb
+      host: ${MONGODB_HOST:account-mongodb}
       username: user
       password: ${MONGODB_PASSWORD}
       database: piggymetrics
