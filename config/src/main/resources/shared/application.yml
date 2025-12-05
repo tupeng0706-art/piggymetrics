@@ -25,3 +25,9 @@ security:
 spring:
   rabbitmq:
     host: ${SPRING_RABBITMQ_HOST:rabbitmq}
+  cloud:
+    inetutils:
+      ignored-interfaces:
+        - eth0
+        - docker0
+        - veth.*
