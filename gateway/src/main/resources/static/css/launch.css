@@ -185,50 +185,12 @@ only screen and (min-resolution: 144dpi) {
 	top: 335px;
 	width: 300px;
 	height: 46px;
-	-webkit-perspective: 1100px;
-	-moz-perspective: 1100px;
-	-ms-perspective: 1100px;
-	-o-perspective: 1100px;
-	perspective: 1100px;
-	-ms-transform: rotate3d(1,0,0,0);
-	-webkit-transform-origin: 50% 46px 0;
-	-moz-transform-origin: 50% 46px 0;
-	-ms-transform-origin: 50% 46px 0;
-	-o-transform-origin: 50% 46px 0;
-	transform-origin: 10% 46px 0;
 	z-index: 3;
 }
 #cube {
-	position: absolute;
+	position: relative;
 	width: 300px;
 	height: 46px;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	-o-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-backface-visibility: visible;
-	-moz-backface-visibility: visible;
-	-ms-backface-visibility: visible;
-	backface-visibility: visible;
-
-	-webkit-transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
-	-moz-transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
-	-ms-transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
-	-o-transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
-	transition: all 400ms cubic-bezier(0.67, 0.07, 0.50, 0.88);
-}
-.flippedform{
-	-webkit-transform-origin: 0 46px -46px;
-	-moz-transform-origin: 0 46px -46px;
-	-ms-transform-origin: 0 46px -46px;
-	-o-transform-origin: 0 46px -46px;
-	transform-origin: 0 46px -46px;
-	-webkit-transform: rotate3d(1,0,0,90deg);
-	-moz-transform: rotate3d(1,0,0,90deg);
-	-ms-transform: rotate3d(1,0,0,90deg);
-	-o-transform: rotate3d(1,0,0,90deg);
-	transform: rotate3d(1,0,0,90deg);
 }
 .side {
 	outline: 3px double #a6ccd9;
@@ -237,6 +199,9 @@ only screen and (min-resolution: 144dpi) {
 	height: 46px;
 	line-height: 48px;
 	position: absolute;
+	background-color: white;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
 }
 #backlogin, #backpassword  {
 	display: block;
@@ -258,19 +223,23 @@ only screen and (min-resolution: 144dpi) {
 	background-color: white;
 	width: 300px;
 	height: 46px;
-	-webkit-transform: translateZ(0px);
-	-moz-transform: translateZ(0px);
-	-ms-transform: translateZ(0px);
-	-o-transform: translateZ(0px);
-	transform: translateZ(0px);
+	z-index: 2;
 }
 #side2 {
 	background-color: white;
-	-webkit-transform: translateZ(-23px) translateY(23px) rotateX(-90deg);
-	-moz-transform: translateZ(-23px) translateY(23px) rotateX(-90deg);
-	-ms-transform: translateZ(-23px) translateY(23px) rotateX(-90deg);
-	-o-transform: translateZ(-23px) translateY(23px) rotateX(-90deg);
-	transform: translateZ(-23px) translateY(23px) rotateX(-90deg);
+	z-index: 1;
+}
+
+/* 翻转后的状态：隐藏side1，显示side2 */
+.flippedform #side1 {
+	opacity: 0;
+	pointer-events: none;
+	z-index: 1;
+}
+.flippedform #side2 {
+	opacity: 1;
+	pointer-events: auto;
+	z-index: 2;
 }
 
 /* END OF FLIP BUTTON */
