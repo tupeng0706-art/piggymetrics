@@ -80,9 +80,21 @@ $(window).load(function(){
         global.mobileClient = true;
 	}
 
-    $.getJSON("https://api.exchangeratesapi.io/latest?base=RUB&symbols=EUR,USD", function( data ) {
-        global.eur = 1 / data.rates.EUR;
-        global.usd = 1 / data.rates.USD;
+    // Fetch exchange rates with error handling
+    $.getJSON("https://api.exchangerate-api.com/v4/latest/RUB", function( data ) {
+        if (data && data.rates && data.rates.EUR && data.rates.USD) {
+            global.eur = 1 / data.rates.EUR;
+            global.usd = 1 / data.rates.USD;
+        } else {
+            console.warn("Invalid exchange rate data format, using default values");
+            global.eur = 0.011;
+            global.usd = 0.013;
+        }
+    }).fail(function() {
+        // Fallback to default rates if API fails
+        console.warn("Failed to fetch exchange rates, using default values");
+        global.eur = 0.011; // Approximate RUB to EUR
+        global.usd = 0.013; // Approximate RUB to USD
     });
 
 	var account = getCurrentAccount();
