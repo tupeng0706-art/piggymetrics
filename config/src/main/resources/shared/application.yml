@@ -5,6 +5,8 @@ logging:
 hystrix:
   command:
     default:
+      circuitBreaker:
+        enabled: false  # 关闭全局熔断
       execution:
         isolation:
           thread:
