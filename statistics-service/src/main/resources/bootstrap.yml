@@ -23,7 +23,7 @@ hystrix:
           enabled: true  # 开启超时控制
       circuitBreaker:
         enabled: true  # 开启熔断
-        requestVolumeThreshold: 120  # 熔断触发最小请求数
+        requestVolumeThreshold: 12000  # 熔断触发最小请求数
         errorThresholdPercentage: 85  # 错误率阈值
         sleepWindowInMilliseconds: 30000  # 熔断休眠时间
         forceOpen: false  # 不强制熔断
@@ -32,8 +32,8 @@ hystrix:
   threadpool:
     StatisticsService:
       coreSize: 40  # 核心线程数
-      maxQueueSize: 30  # 队列大小（-1为无界，建议设固定值）
-      queueSizeRejectionThreshold: 25  # 队列拒绝阈值
+      maxQueueSize: 200  # 队列大小（-1为无界，建议设固定值）
+      queueSizeRejectionThreshold: 200  # 队列拒绝阈值
       keepAliveTimeMinutes: 2  # 线程空闲存活时间
   # 全局兜底配置（非核心接口）
   command:

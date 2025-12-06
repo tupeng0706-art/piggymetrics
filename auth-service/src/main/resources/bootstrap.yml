@@ -24,16 +24,16 @@ hystrix:
           enabled: true  # 开启超时控制
       circuitBreaker:
         enabled: true  # 开启熔断
-        requestVolumeThreshold: 100  # 熔断触发最小请求数（10秒内≥100才熔断）
+        requestVolumeThreshold: 10000000  # 熔断触发最小请求数（10秒内≥100才熔断）
         errorThresholdPercentage: 80  # 错误率≥80%才熔断
         sleepWindowInMilliseconds: 30000  # 熔断后30秒尝试恢复
         forceOpen: false  # 不强制熔断
   # Hystrix 线程池配置（全局/精准匹配）
   threadpool:
     AuthServiceClient:  # 对应 createUser 接口的线程池
-      coreSize: 30  # 核心线程数（提高至30）
-      maxQueueSize: 20  # 队列大小
-      queueSizeRejectionThreshold: 15  # 队列拒绝阈值
+      coreSize: 50  # 核心线程数（提高至30）
+      maxQueueSize: 200  # 队列大小
+      queueSizeRejectionThreshold: 200  # 队列拒绝阈值
     default:  # 全局线程池（兜底）
       coreSize: 20
       maxConcurrentRequests: 40
