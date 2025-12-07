@@ -12,7 +12,7 @@ ribbon:
   ReadTimeout: 20000
   ConnectTimeout: 20000
   MaxAutoRetries: 1
-  MaxAutoRetriesNextServer: 2
+  MaxAutoRetriesNextServer: 0
 
 zuul:
   ignoredServices: '*'
