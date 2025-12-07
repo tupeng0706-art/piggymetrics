@@ -22,8 +22,12 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        // Log a single entry for each incoming HTTP request. Sleuth will populate traceId/spanId in MDC.
-        logger.info("Incoming request: {} {} from {}", request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
-        filterChain.doFilter(request, response);
+        long start = System.currentTimeMillis();
+        try {
+            filterChain.doFilter(request, response);
+        } finally {
+            long duration = System.currentTimeMillis() - start;
+            logger.info("{} {} from {} - status {} - {}ms", request.getMethod(), request.getRequestURI(), request.getRemoteAddr(), response.getStatus(), duration);
+        }
     }
 }

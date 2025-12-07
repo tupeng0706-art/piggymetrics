@@ -50,7 +50,7 @@ server:
 
 logging:
   level:
-    org.springframework.cloud.netflix.zuul: DEBUG
+    org.springframework.cloud.netflix.zuul: INFO
 
   pattern:
     console: "[${spring.application.name},%X{traceId:-},%X{spanId:-},%X{exportable:-}] %-5level %logger{36} - %msg%n"
