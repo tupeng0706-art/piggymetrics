@@ -47,3 +47,7 @@ zuul:
 
 server:
   port: 4000
+
+logging:
+  level:
+    org.springframework.cloud.netflix.zuul: INFO
