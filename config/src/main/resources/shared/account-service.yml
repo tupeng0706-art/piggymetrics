@@ -23,4 +23,20 @@ server:
 
 feign:
   hystrix:
-    enabled: false
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        enabled: true
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 30000
+  threadpool:
+    default:
+      coreSize: 100
+      maxQueueSize: 10000
+      queueSizeRejectionThreshold: 10000

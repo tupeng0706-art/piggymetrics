@@ -2,16 +2,22 @@ hystrix:
   command:
     default:
       circuitBreaker:
-        enabled: false  # 关闭全局熔断
+        enabled: true
       execution:
         isolation:
+          strategy: THREAD
           thread:
-            timeoutInMilliseconds: 80000
+            timeoutInMilliseconds: 30000
+  threadpool:
+    default:
+      coreSize: 100
+      maxQueueSize: 10000
+      queueSizeRejectionThreshold: 10000
 
 ribbon:
-  ReadTimeout: 20000
-  ConnectTimeout: 20000
-  MaxAutoRetries: 1
+  ReadTimeout: 15000
+  ConnectTimeout: 5000
+  MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
 
 zuul:
