@@ -11,3 +11,7 @@ server:
   servlet:
     context-path: /uaa
   port: 5001
+
+logging:
+  pattern:
+    console: "[${spring.application.name},%X{traceId:-},%X{spanId:-},%X{exportable:-}] %-5level %logger{36} - %msg%n"

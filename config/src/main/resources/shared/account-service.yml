@@ -24,3 +24,7 @@ server:
 feign:
   hystrix:
     enabled: false
+
+logging:
+  pattern:
+    console: "[${spring.application.name},%X{traceId:-},%X{spanId:-},%X{exportable:-}] %-5level %logger{36} - %msg%n"
